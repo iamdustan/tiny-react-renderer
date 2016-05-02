@@ -1,0 +1,5 @@
+# Terminology
+
+* ReactElement
+* ReactComponent
+

@@ -1,0 +1,37 @@
+
+{
+  "name": "tiny-react-renderer",
+  "version": "0.2.0",
+  "description": "A tiny React renderer to demonstrate how to write a renderer.",
+  "main": "./index.js",
+  "scripts": {
+    "test": "node ./test",
+    "build": "echo \"Error: no build command yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamdustan/tiny-react-renderer"
+  },
+  "files": [
+    "src",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "react",
+    "reactjs",
+    "renderer"
+  ],
+  "author": "Dustan Kasten <dustan.kasten@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamdustan/tiny-render-renderer/issues"
+  },
+  "homepage": "https://github.com/iamdustan/tiny-render-renderer",
+  "dependencies": {
+    "fbjs": "^0.8.0",
+    "react": "^0.15.0"
+  },
+  "devDependencies": {}
+}
+
