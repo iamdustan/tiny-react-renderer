@@ -22,6 +22,8 @@ AppRegistry.registerComponent('MyApp', () => MyApp);
 Both of these end at the `React{Target}Mount.js` file. Your renderer should
 begin there.
 
+To get started, begin reading from [./src/mount.js](./src/mount.js).
+
 ## Work in Progress
 
 Please note this guide is a work in progress.
