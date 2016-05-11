@@ -58,7 +58,7 @@ const MinimumViableComponent = function(element) {
   // `this._currentElement` is the currently rendered ReactElement. This is
   // important because it allows you to compare the node and props on lifecycle
   // methods to update appropriately.
-  this._currentElement = elemement;
+  this._currentElement = element;
 };
 
 MinimumViableComponent.prototype = Object.assign(

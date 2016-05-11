@@ -29,10 +29,8 @@ Please note this guide is a work in progress.
 ## Thanks
 
 * [@thejameskyle](https://github.com/thejameskyle): for the inspiration of repo style
-* [@ryanflorence](https://github.com/ryanflorence) and [mjackson](mjackson) for React Router and the problem that inspired this
-* [@gaearon](https://github.com/gaearon/), [@matthewwithanm](https://github.com/gaearon/),
+* [@ryanflorence](https://github.com/ryanflorence) and [@mjackson](https://github.com/mjackson) for React Router and the problem that inspired this
+* [@gaearon](https://github.com/gaearon), [@matthewwithanm](https://github.com/matthewwithanm),
   [@vjeux](https://github.com/vjeux), [@zpao](https://github.com/zpao),
   [@Yomguithereal](https://github.com/Yomguithereal), [@axemclion](https://github.com/axemclion),
   and everyone else who has helped me poke around the React codebase.
-
-
