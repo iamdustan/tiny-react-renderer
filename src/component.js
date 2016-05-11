@@ -136,7 +136,7 @@ const TinyRendererComponentMixin = {
     return this.node;
   },
 
-  receiveComponent() {
+  receiveComponent(nextElement, transaction, context) {
     // typically you would diff the props and apply those to the target
     // environment, though all we need to do is swap out our _currentElement.
     const prevElement = this._currentElement;
