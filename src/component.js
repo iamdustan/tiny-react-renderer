@@ -37,7 +37,9 @@ const serialize = require('./utilities/serialize');
  *
  * This has a very symmetrical relationship to the userland side of creating a
  * React Component. There are the additional private methods used by other parts
- * of React Core, such as `getPublicInstance` or `getNativeNode`.
+ * of React Core, such as `getPublicInstance` or
+ * React <= 15.0 `getNativeNode`
+ * React > 15.0 `getHostNode`
  */
 const MinimumViableComponent = function(element) {
   // This internal API—while relatively unchanged for a while—is likely pretty
@@ -45,7 +47,7 @@ const MinimumViableComponent = function(element) {
   // not be the *best* abstraction for them.
 
   // `this.node` in ReactDOM points to the DOM node of a component.
-  // `getNativeNode` should return this.
+  // `getNativeNode`/`getHostNode` should return this.
   this.node = null;
   // `this._mountImage` is the representation you use to render a ReactElement
   // hierarchy. This could be an HTML string, a DOM node, or an identifier or
@@ -71,7 +73,11 @@ MinimumViableComponent.prototype = Object.assign(
     mountComponent() {},
     receiveComponent() {},
     unmountComponent() {},
-    getNativeNode() {}
+    // implement both of these for now. React <= 15.0 uses getNativeNode, but
+    // that is confusing. Host environment is more accurate and will be used
+    // going forward
+    getNativeNode() {},
+    getHostNode() {}
   },
   ReactMultiChild.Mixin
 );
@@ -146,7 +152,7 @@ const TinyRendererComponentMixin = {
     this.updateChildren(nextElement.props.children, transaction, context);
   },
   // there is no native node
-  getNativeNode() {},
+  getHostNode() {},
   // how do you unmount JSON?
   unmountComponent() {},
 };

@@ -39,7 +39,7 @@
  * * ReactDOMComponent.js
  * * ReactEmptyComponent.js
  * * ReactInjection.js
- * * ReactNativeComponent.js
+ * * ReactHostComponent.js
  * * ReactPerf.js
  * * ReactMount.js
  * * ReactServerRendering.js
@@ -61,7 +61,7 @@
  * * EventPluginHub
  * * EventPluginUtils
  * * EventEmitter
- * * NativeComponent
+ * * HostComponent
  * * Perf
  * * Updates
  *
@@ -76,7 +76,7 @@ const TinyRendererComponent = require('./component');
 
 function inject() {
   // For the Tiny React Renderer only the generic component class will be
-  // injected. The NativeComponent injection has the following three methods:
+  // injected. The HostComponent injection has the following three methods:
   //
   // * injectGenericComponentClass
   // * injectTextComponentClass
@@ -93,7 +93,7 @@ function inject() {
   // For example, the following scenario would map `<input />` to the specific
   // ReactDOMInput component.
   // `injectComponentClasses({input: ReactDOMInput})`
-  ReactInjection.NativeComponent.injectGenericComponentClass(
+  (ReactInjection.NativeComponent || ReactInjection.HostComponent).injectGenericComponentClass(
     TinyRendererComponent
   );
 
