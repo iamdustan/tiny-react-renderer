@@ -45,7 +45,7 @@
  */
 
 /**
- * As with most modern JavaScript projects in 2016, we begin be importing our
+ * As with most modern JavaScript projects in 2016, we begin by importing our
  * dependencies. The first dependency here will typically be seen inline, but
  * has been moved out for clarity while reading the primary `mount` method
  * below.

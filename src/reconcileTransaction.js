@@ -27,7 +27,7 @@ const PooledClass = require('react/lib/PooledClass');
 const Transaction = require('react/lib/Transaction');
 
 /**
- * Provides a `CallbackQueue` queue for collecting `onDOMReady` or analagous
+ * Provides a `CallbackQueue` queue for collecting `onDOMReady` or analogous
  * callbacks during the performing of the transaction.
  */
 const ON_RENDERER_READY_QUEUEING = {
@@ -78,7 +78,7 @@ const Mixin = {
 
   /**
    * `PooledClass` looks for this, and will invoke this before allowing this
-   * instance to be resused.
+   * instance to be reused.
    */
   destructor: function() {
     CallbackQueue.release(this.reactMountReady);

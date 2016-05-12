@@ -12,9 +12,9 @@
 
 /**
  * React Components are the heart and soul of a React renderer. This is the
- * internal side of a consumers ReactComponents. At a high level, you will
+ * internal side of a consumers’ ReactComponents. At a high level, you will
  * define one or more internal components to map to the public interface of your
- * renderer. Beloew this we have defined two ReactComponents.
+ * renderer. Below this we have defined two ReactComponents.
  *
  * * MinimumViableComponent
  * * TinyRendererComponent
@@ -48,7 +48,7 @@ const MinimumViableComponent = function(element) {
   // `getNativeNode` should return this.
   this.node = null;
   // `this._mountImage` is the representation you use to render a ReactElement
-  // heirarchy. This could be an HTML string, a DOM node, or an identifier or
+  // hierarchy. This could be an HTML string, a DOM node, or an identifier or
   // simple representation that maps to the final result such as native UI
   // controls.
   this._mountImage = null;
@@ -79,7 +79,7 @@ MinimumViableComponent.prototype = Object.assign(
 /**
  * The fun begins! Well, it would in a not-so-tiny renderer, but for here it’s
  * pretty straight-forward. The idea for this particular implementation came
- * from converations with Ryan Florence and Michael Jackson from the React
+ * from conversations with Ryan Florence and Michael Jackson from the React
  * Router/React.js Training teams.
  *
  * React Router supports two route configuration approaches:
@@ -90,7 +90,7 @@ MinimumViableComponent.prototype = Object.assign(
  * As I understand it, both approaches result in the object literal, it’s just a
  * matter of the path to get there. The question then is what would it look
  * like to write a renderer that accomplishes the ReactComponent authoring style
- * in more elegant way?
+ * in a more elegant way?
  *
  * If you recall from our mount.js render method, the return value or callback
  * is called with the result of `component.getPublicInstance()`. We want this to

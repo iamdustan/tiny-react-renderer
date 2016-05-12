@@ -82,7 +82,7 @@ function inject() {
   // * injectTextComponentClass
   // * injectComponentClasses
   //
-  // `GenericComponentClass` is analagous to $JSXInstrinsics in flow
+  // `GenericComponentClass` is analogous to $JSXInstrinsics in flow
   // terminology. This is a lowercase JSXElement such as <div />
   //
   // `TextComponentClass` is what class should be used when text is being
