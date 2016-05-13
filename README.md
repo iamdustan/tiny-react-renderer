@@ -26,7 +26,8 @@ To get started, begin reading from [./src/mount.js](./src/mount.js).
 
 ## Work in Progress
 
-Please note this guide is a work in progress.
+Please note this guide is a work in progress. Much of this knowledge is derived
+from my experience in creating [React Hardware](https://github.com/iamdustan/react-hardware).
 
 ## Thanks
 
