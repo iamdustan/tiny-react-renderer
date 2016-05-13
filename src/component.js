@@ -131,7 +131,7 @@ const TinyRendererComponentMixin = {
     context
   ) {
     // in a not-so-tiny renderer you would also want to validate the properties
-    // (dev mode) and apply them to the target environment.
+    // (dev mode) and apply them to the host environment.
     // I have often seen renderers have a `render` method defined on their
     // internal component implementation that is responsible for calling the
     // appropriate methods to update the UI. For example that could be DOM
@@ -143,7 +143,7 @@ const TinyRendererComponentMixin = {
   },
 
   receiveComponent(nextElement, transaction, context) {
-    // typically you would diff the props and apply those to the target
+    // typically you would diff the props and apply those to the host
     // environment, though all we need to do is swap out our _currentElement.
     const prevElement = this._currentElement;
     this._currentElement = nextElement;
@@ -166,12 +166,12 @@ Object.assign(
 /**
  * CONGRATULATIONS! You now understand the basics of how a React Renderer works.
  * While there is still a lot of React Internals we didn’t look at, you saw the
- * foundational pieces. Every renderer listed on [TODO: link to
- * iamdustan.com/react-renderers] has the same entry path and hooks as what you
- * just learned.
+ * foundational pieces. Most every renderer listed on
+ * http://iamdustan.com/react-renderers has the same entry path and hooks as
+ * what you just learned.
  *
  * A lot of ReactDOM and ReactNative’s source is integrating the concepts we
- * just learned in this binding layer to a target environment. From this
+ * just learned in this binding layer to a host environment. From this
  * foundation you have a solid understanding of the glue. ReactCore deals with
  * details of reconciliation and transactions, while renderers are plumbing.
  *
