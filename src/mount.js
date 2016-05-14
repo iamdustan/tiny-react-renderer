@@ -16,9 +16,10 @@
  *
  * We’re going to look at the four required modules that a React renderer has.
  * Beyond this you will have the work that binds a renderer implementation to a
- * target environment. For this Tiny React Renderer we’re implementing a
- * glorified `toJSON` renderer and will not have that. See [Appendix 3: Target
- * Environment Examples] to learn more.
+ * host environment. For this Tiny React Renderer we’re implementing a glorified
+ * `toJSON` renderer and will not have that. See
+ * [Appendix 3: Host Environment Examples](https://github.com/iamdustan/tiny-react-renderer/tree/master/appendix/3-Host-Environment-Examples.md)
+ * to learn more.
  *
  * The four core modules in a React renderer are:
  *
@@ -36,8 +37,8 @@
  * `ReconcileTransaction` is a class which maintains the logic for how
  * reconciliations take place. Many renderers can use the simple transaction as
  * provided in here, although a lot of complexity can be contained within here.
- * See [Appendix 2: Reconcile Transaction] for a deeper look into the default
- * DOM ReactReconcileTransaction details.
+ * See [Appendix 2: Reconcile Transaction](https://github.com/iamdustan/tiny-react-renderer/tree/master/appendix/2-Reconcile-Transaction.md)
+ * for a deeper look into the default DOM ReactReconcileTransaction details.
  *
  * `Component` is the internal class to a consumers component. This is where
  * property diffing is computed and applied and where the realization of a
@@ -119,6 +120,8 @@ const render = (
   //   warning.isValidTargetElement(targetElement);
 
   // Appendix 1: Rerendering A Top Level Element
+  // https://github.com/iamdustan/tiny-react-renderer/tree/master/appendix/1-Rendering-A-Top-Level-Element.md
+  //
   // If there is a target element or the opportunity to reuse a previous render
   // call, you would look up the previous element and reconcile from there.
 
