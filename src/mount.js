@@ -140,7 +140,7 @@ const render = (
   // Note: there is ongoing research for creating an incremental reconciler
   // which may impact this aspect of renderer creation.
   //
-  // Assuming you’ve read the [React Reconciliation Algorithm](TODO) article on
+  // Assuming you’ve read the [React Reconciliation Algorithm](https://facebook.github.io/react/docs/reconciliation.html) article on
   // the React docs, this may be familiar. The “public” API for accomplishing
   // this is done with a batching strategy and transaction. React provides
   // default implementations for both of these and do not require any effort
