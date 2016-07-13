@@ -15,3 +15,7 @@ tldr;
   managing the internal state, lifecycle, warnings, invariants, props, et cetera.
 * Instance: ...
 
+Additional Resources
+* [Contributing to React JS (video)](https://www.youtube.com/watch?v=wUpPsEcGsg8)
+  *Overview of source begins ~9:00*
+
