@@ -1,6 +1,6 @@
 /***
  * Welcome to the Tiny React Renderer.
- * 
+ *
  * You should read this guide in the following order:
  *
  * 1. mount.js

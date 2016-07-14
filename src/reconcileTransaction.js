@@ -1,6 +1,6 @@
 /***
  * Welcome to the Tiny React Renderer.
- * 
+ *
  * You should read this guide in the following order:
  *
  * 1. mount.js
@@ -17,7 +17,7 @@
  * code, but with the DOM event and selection handlers removed.
  *
  * Really interesting edge cases are managed from here, but nothing of
- * interesting happens in a Tiny Renderer.
+ * interest happens in a Tiny Renderer.
  */
 
 'use strict';

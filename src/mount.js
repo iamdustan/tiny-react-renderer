@@ -1,6 +1,6 @@
 /***
  * Welcome to the Tiny React Renderer.
- * 
+ *
  * You should read this guide in the following order:
  *
  * 1. mount.js
@@ -29,9 +29,9 @@
  * * ReconcileTransaction
  *
  * `DefaultInjection` must inject its implementations before any other work can
- * be done. It is part of a renderers initialization process.
+ * be done. It is part of a renderer's initialization process.
  *
- * `Mount` can be thought of a renderers `main` method. All userland code enters
+ * `Mount` can be thought of a renderer's `main` method. All userland code enters
  * the React world through this door.
  *
  * `ReconcileTransaction` is a class which maintains the logic for how
@@ -40,7 +40,7 @@
  * See [Appendix 2: Reconcile Transaction](https://github.com/iamdustan/tiny-react-renderer/tree/master/appendix/2-Reconcile-Transaction.md)
  * for a deeper look into the default DOM ReactReconcileTransaction details.
  *
- * `Component` is the internal class to a consumers component. This is where
+ * `Component` is the internal class to a consumer's component. This is where
  * property diffing is computed and applied and where the realization of a
  * renderer takes place.
  */
@@ -71,7 +71,7 @@ const DefaultInjection = require('./injection');
 
 /**
  * Step 0. Inject the unique aspects of your renderer into React core
- * immediately. This will be things like your event system, generic component
+ * immediately. These will be things like your event system, generic component
  * handler, reconciliation strategy, or batching strategy.
  */
 DefaultInjection.inject();
@@ -103,7 +103,7 @@ const render = (
   callback // optional callback for when mount is complete
 ) => {
 
-  // the first thing you'll want to do in here is confirm that they passed in a
+  // The first thing you'll want to do in here is confirm the caller passed in a
   // valid ReactElement. The implementation of this is the same across renderers
   // with the exception of the error message through when the invariant fails.
   invariants.isValidElement(nextElement);
@@ -113,7 +113,7 @@ const render = (
   // consider applying a `warning` or `invariant` to that argument to ensure the
   // consumer has an educational experience in development mode. A key objective
   // of writing a renderer is to make interacting with the host system simpler.
-  // A given renderer should seek to help its’ users to avoid simple mistakes
+  // A given renderer should seek to help its users to avoid simple mistakes.
   // such as passing in a non-existent DOM node.
   //
   // @example:
@@ -128,8 +128,10 @@ const render = (
   // Woohoo! The consumer has now made it to the point where we’re interacting
   // with React internals! Since any application can have multiple roots, we
   // want to get an identifier from the `ReactInstanceHandles` component.
-  // 
+  //
   // Next we instantiate a new ReactComponent from the ReactElement passed in.
+  // See [React glossary](https://facebook.github.io/react/docs/glossary.html)
+  // for more context on the relationship between ReactComponent and ReactElement.
   const rootId = ReactInstanceHandles.createReactRootID(0);
   const component = instantiateReactComponent(nextElement);
 
@@ -143,14 +145,14 @@ const render = (
   // Assuming you’ve read the [React Reconciliation Algorithm](https://facebook.github.io/react/docs/reconciliation.html) article on
   // the React docs, this may be familiar. The “public” API for accomplishing
   // this is done with a batching strategy and transaction. React provides
-  // default implementations for both of these and do not require any effort
+  // default implementations for both of these and does not require any effort
   // from us other than calling them.
   ReactUpdates.batchedUpdates(() => {
     // Two points to React for using object pooling internally and being good
     // stewards of garbage collection and memory pressure.
     const transaction = ReactUpdates.ReactReconcileTransaction.getPooled();
     transaction.perform(() => {
-      // the `component` here is an instance of your
+      // The `component` here is an instance of your
       // `ReactCustomRendererComponent` class. To be 100% honest, I’m not
       // certain if the method signature is enforced by React core or if it is
       // renderer specific. This is following the ReactDOM renderer. The
@@ -159,6 +161,7 @@ const render = (
       component.mountComponent(
         transaction,
         rootId,
+        // TODO: what is _idCounter used for and when should it be nonzero?
         {_idCounter: 0},
         {}
       );

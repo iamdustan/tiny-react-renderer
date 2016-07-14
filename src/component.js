@@ -1,6 +1,6 @@
 /***
  * Welcome to the Tiny React Renderer.
- * 
+ *
  * You should read this guide in the following order:
  *
  * 1. mount.js
@@ -12,7 +12,7 @@
 
 /**
  * React Components are the heart and soul of a React renderer. This is the
- * internal side of a consumers’ ReactComponents. At a high level, you will
+ * internal side of a consumer's ReactComponents. At a high level, you will
  * define one or more internal components to map to the public interface of your
  * renderer. Below this we have defined two ReactComponents.
  *
@@ -36,7 +36,7 @@ const serialize = require('./utilities/serialize');
  * that the default case for a component is to support children.
  *
  * This has a very symmetrical relationship to the userland side of creating a
- * React Component. There are the additional private methods used by other parts
+ * React Component. In addition, there are private methods used by other parts
  * of React Core, such as `getPublicInstance` or
  * React <= 15.0 `getNativeNode`
  * React > 15.0 `getHostNode`
@@ -65,15 +65,15 @@ const MinimumViableComponent = function(element) {
 
 MinimumViableComponent.prototype = Object.assign(
   {
-    // a nice symmetry to [TODO: React Lifecycle Methods] exists here.
-    // these are the required methods to implement. You may additionally provide
+    // A nice symmetry to [TODO: React Lifecycle Methods] exists here.
+    // These are the required methods to implement. You may additionally provide
     // custom implementations of other lifecycle methods or any arbitrary
     // methods that are private to your implementation.
     getPublicInstance() {},
     mountComponent() {},
     receiveComponent() {},
     unmountComponent() {},
-    // implement both of these for now. React <= 15.0 uses getNativeNode, but
+    // Implement both of these for now. React <= 15.0 uses getNativeNode, but
     // that is confusing. Host environment is more accurate and will be used
     // going forward
     getNativeNode() {},
@@ -116,9 +116,9 @@ const TinyRendererComponentMixin = {
   getPublicInstance() {
     // serialize.toJSON is the default serialization provided.
     //
-    // It simple returns the node.props of a component with serialized children.
-    // It also looks if a component has a custom `toJSON` method and will use
-    // that instead—allowing consumers to provide their own serialization and
+    // It simply returns the node.props of a component with serialized children.
+    // It also looks at whether a component has a custom `toJSON` method and will
+    // use that instead, allowing consumers to provide their own serialization and
     // impacting the resulting public instance.
 
     return serialize.toJSON(this.node)
@@ -130,8 +130,8 @@ const TinyRendererComponentMixin = {
     nativeContainerInfo,
     context
   ) {
-    // in a not-so-tiny renderer you would also want to validate the properties
-    // (dev mode) and apply them to the host environment.
+    // In a not-so-tiny renderer you would also want to validate the properties
+    // (in dev mode) and apply them to the host environment.
     // I have often seen renderers have a `render` method defined on their
     // internal component implementation that is responsible for calling the
     // appropriate methods to update the UI. For example that could be DOM
@@ -143,7 +143,7 @@ const TinyRendererComponentMixin = {
   },
 
   receiveComponent(nextElement, transaction, context) {
-    // typically you would diff the props and apply those to the host
+    // Typically you would diff the props and apply those to the host
     // environment, though all we need to do is swap out our _currentElement.
     const prevElement = this._currentElement;
     this._currentElement = nextElement;
@@ -165,7 +165,7 @@ Object.assign(
 
 /**
  * CONGRATULATIONS! You now understand the basics of how a React Renderer works.
- * While there is still a lot of React Internals we didn’t look at, you saw the
+ * While there are still a lot of React internals we didn’t look at, you saw the
  * foundational pieces. Most every renderer listed on
  * http://iamdustan.com/react-renderers has the same entry path and hooks as
  * what you just learned.
