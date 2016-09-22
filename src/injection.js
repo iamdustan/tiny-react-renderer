@@ -70,7 +70,6 @@
  */
 const ReactInjection = require('react/lib/ReactInjection');
 const ReactDefaultBatchingStrategy = require('react/lib/ReactDefaultBatchingStrategy');
-const ReactComponentEnvironment = require('react/lib/ReactComponentEnvironment');
 const TinyRendererReconcileTransaction = require('./reconcileTransaction');
 const TinyRendererComponent = require('./component');
 
