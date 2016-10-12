@@ -4,8 +4,7 @@
   "description": "A tiny React renderer to demonstrate how to write a renderer.",
   "main": "./index.js",
   "scripts": {
-    "test": "node ./test",
-    "build": "echo \"Error: no build command yet\""
+    "test": "node ./test"
   },
   "repository": {
     "type": "git",
@@ -28,8 +27,8 @@
   },
   "homepage": "https://github.com/iamdustan/tiny-render-renderer",
   "dependencies": {
-    "fbjs": "^0.8.0",
-    "react": "^15.0.2"
+    "fbjs": "^0.8.4",
+    "react": "15.3.x"
   },
   "devDependencies": {}
 }
