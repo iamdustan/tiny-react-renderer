@@ -28,7 +28,7 @@
   "homepage": "https://github.com/iamdustan/tiny-render-renderer",
   "dependencies": {
     "fbjs": "^0.8.4",
-    "react": "15.3.x"
+    "react": "next"
   },
   "devDependencies": {}
 }
