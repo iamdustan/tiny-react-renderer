@@ -12,10 +12,10 @@
 'use strict';
 
 const invariant = require('fbjs/lib/invariant');
-const ReactElement = require('react/lib/ReactElement');
+const React = require('react');
 
 const isValidElement = (nextElement) => invariant(
-  ReactElement.isValidElement(nextElement),
+  React.isValidElement(nextElement),
   'ReactHardware.render(): Invalid component element.%s',
   (
     typeof nextElement === 'function' ?

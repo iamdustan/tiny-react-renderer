@@ -68,9 +68,10 @@
  * Some of these can be injected verbatim for most scenarios, and we provide our
  * component implementation(s) to be called at the appropriate times.
  */
-const ReactInjection = require('react/lib/ReactInjection');
-const ReactDefaultBatchingStrategy = require('react/lib/ReactDefaultBatchingStrategy');
-const TinyRendererReconcileTransaction = require('./reconcileTransaction');
+
+const ReactInjection = require('react-stack-reconciler').ReactInjection;
+const ReactDefaultBatchingStrategy = require('react-stack-reconciler/lib/ReactDefaultBatchingStrategy');
+const TinyRendererReconcileTransaction = ReactInjection.ReconcileTransaction;
 const TinyRendererComponent = require('./component');
 
 function inject() {

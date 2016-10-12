@@ -72,6 +72,11 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+react-stack-reconciler-16.0.0-alpha.tgz, react-stack-reconciler@react-stack-reconciler-16.0.0-alpha.tgz:
+  name react-stack-reconciler
+  version "16.0.0-alpha"
+  resolved react-stack-reconciler-16.0.0-alpha.tgz#e96a046f207d76612af6c31a5efd077461df7e73
+
 react@next:
   version "15.4.0-rc.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.0-rc.2.tgz#e70ee35c85fc8390b60106440d7f55a56d00e8ff"

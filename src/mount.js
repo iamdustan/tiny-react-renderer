@@ -64,9 +64,14 @@
 'use strict';
 
 const invariants = require('./utilities/invariants');
-const instantiateReactComponent = require('react/lib/instantiateReactComponent');
-const ReactInstanceHandles = require('react/lib/ReactInstanceHandles');
-const ReactUpdates = require('react/lib/ReactUpdates');
+const ReactStackReconciler = require('react-stack-reconciler');
+const {
+  instantiateReactComponent,
+  ReactInstanceMap,
+  ReactReconciler,
+  ReactUpdates
+} = ReactStackReconciler;
+
 const DefaultInjection = require('./injection');
 
 /**
@@ -132,8 +137,8 @@ const render = (
   // Next we instantiate a new ReactComponent from the ReactElement passed in.
   // See [React glossary](https://facebook.github.io/react/docs/glossary.html)
   // for more context on the relationship between ReactComponent and ReactElement.
-  const rootId = ReactInstanceHandles.createReactRootID(0);
   const component = instantiateReactComponent(nextElement);
+  // ReactInstanceMap.set(component, rootId);
 
   // The initial render is currently synchronous, but any updates that happen
   // during rendering, in componentWillMount or componentDidMount, will be
@@ -158,12 +163,14 @@ const render = (
       // renderer specific. This is following the ReactDOM renderer. The
       // important piece is that we pass our transaction and rootId through, in
       // addition to any other contextual information needed.
-      component.mountComponent(
+      ReactReconciler.mountComponent(
+        component,
         transaction,
-        rootId,
+        null,
         // TODO: what is _idCounter used for and when should it be nonzero?
         {_idCounter: 0},
-        {}
+        {},
+        0 /* parentDebugId */
       );
       if (callback) {
         callback(component.getPublicInstance());

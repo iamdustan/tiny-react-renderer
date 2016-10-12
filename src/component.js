@@ -27,7 +27,8 @@
  */
 'use strict';
 
-const ReactMultiChild = require('react/lib/ReactMultiChild');
+const ReactMultiChild = require('react-stack-reconciler/lib/ReactMultiChild');
+const {ReactReconciler} = require('react-stack-reconciler');
 const serialize = require('./utilities/serialize');
 
 /**
@@ -137,7 +138,7 @@ const TinyRendererComponentMixin = {
     // appropriate methods to update the UI. For example that could be DOM
     // methods, ReactNativeUIManager bridging calls, or node-blessed methods.
     this.node = this._currentElement;
-    this.mountChildren(this.node.children, transaction, context);
+    // ReactReconciler.mountChildren(this.node.children, transaction, context);
 
     return this.node;
   },

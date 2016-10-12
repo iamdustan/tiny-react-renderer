@@ -28,7 +28,8 @@
   "homepage": "https://github.com/iamdustan/tiny-render-renderer",
   "dependencies": {
     "fbjs": "^0.8.4",
-    "react": "next"
+    "react": "next",
+    "react-stack-reconciler": "react-stack-reconciler-16.0.0-alpha.tgz"
   },
   "devDependencies": {}
 }

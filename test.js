@@ -74,7 +74,10 @@ it('should render with the default toJSON behavior', () => {
 it('should render with a custom toJSON method', () => {
   render(
     Rte('/', Base, [
-      Rte('/page/1', Page1),
+      Rte('/page/1', Page1, [
+        Rte('/page/1/a', Page1),
+        Rte('/page/1/b', Page1),
+      ]),
       Rte('/page/2', Page2)
     ]),
     (element) => {

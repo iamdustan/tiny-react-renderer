@@ -1,5 +1,11 @@
 # Tiny React Renderer
 
+> [WARNING]: this branch is being developed against my [React Stack Reconciler package](https://github.com/facebook/react/compare/master...iamdustan:stack-reconciler)
+> branch of React.js. This is a hack to expose the minimal required internals in
+> a standalone package. This suffers from the same issues that requiring React
+> internals had before (shared state), though that is likely not to be an issue.
+> If it is custom React renderers are way more popular than I had thought.
+
 Creating a React Renderer will give you the opportunity to apply the same React
 knowledge that you and your team already know and enjoy from the web and native
 to whatever host environment you need.
