@@ -79,7 +79,6 @@ function inject() {
   //
   // * injectGenericComponentClass
   // * injectTextComponentClass
-  // * injectComponentClasses
   //
   // `GenericComponentClass` is analogous to $JSXInstrinsics in flow
   // terminology. This is a lowercase JSXElement such as <div />
@@ -87,11 +86,6 @@ function inject() {
   // `TextComponentClass` is what class should be used when text is being
   // rendered. This is what would be called for the single child in
   // <div>Hello, world.</div>
-  //
-  // `injectComponentClasses` allows configuring a mapping of keys to classes.
-  // For example, the following scenario would map `<input />` to the specific
-  // ReactDOMInput component.
-  // `injectComponentClasses({input: ReactDOMInput})`
   (ReactInjection.NativeComponent || ReactInjection.HostComponent).injectGenericComponentClass(
     TinyRendererComponent
   );
