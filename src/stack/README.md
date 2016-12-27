@@ -1,11 +1,7 @@
 # Tiny React Renderer
 
-Creating a React Renderer will give you the opportunity to apply the same React
-knowledge that you and your team already know and enjoy from the web and native
-to whatever host environment you need.
-
-Creating a renderer is a fairly straight-forward affair once you know what
-you’re looking for.
+Creating a stack-based renderer is a fairly straight-forward affair once you
+know what you’re looking for.
 
 Many languages have this concept of a `main`—the entry point to your
 application. If you look at any React application code you’ve written you’ll see
@@ -32,26 +28,6 @@ With that let’s get started! Our tour continues in [./src/mount.js](./src/moun
 
 Please note this guide is a work in progress. Much of this knowledge is derived
 from my experience in creating [React Hardware](https://github.com/iamdustan/react-hardware).
-
-
-## Renderer Implementations
-
-* Stack
-* Fiber
-
-The React that we have worked with to date has been using what is called the
-stack renderer. This is because it is implemented on the traditional JavaScript
-stack and operates within those confines.
-
-Fiber, on the other-hand, can be thought of like a React VM. It is influenced by
-OCaml, algebraic effects, and other functional ideas. From an implementation
-level, Fiber has a first-class renderer API allowing creating custom renderers a
-much nicer experience.
-
-The documentation for stack is no in maintenance mode and will not be very
-accurate as time progresses. This can be found in `./src/stack`. The Fiber API
-changes will be followed throughout its development to a stable release in
-`./src/fiber`
 
 ## Thanks
 
