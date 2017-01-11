@@ -22,7 +22,7 @@ If you follow either the ReactDOM or React Native codebases from where these
 methods are defined you will quickly find yourself at the `React{Host}Mount.js`
 file. Our renderer also begins there.
 
-With that let’s get started! Our tour continues in [./src/mount.js](./src/mount.js).
+With that let’s get started! Our tour continues in [./mount.js](./mount.js).
 
 ## Work in Progress
 
