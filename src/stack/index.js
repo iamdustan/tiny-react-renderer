@@ -1,6 +1,6 @@
 'use strict';
 
-const render = require('./src/mount');
+const render = require('./mount');
 
 module.exports = {render};
 

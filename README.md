@@ -33,6 +33,10 @@ With that let’s get started! Our tour continues in [./src/mount.js](./src/moun
 Please note this guide is a work in progress. Much of this knowledge is derived
 from my experience in creating [React Hardware](https://github.com/iamdustan/react-hardware).
 
+## Tests
+
+* `npm test` will run the tests with the stack-based renderer
+* `npm test -- --fiber` will run the tests with the upcoming fiber implementation
 
 ## Renderer Implementations
 

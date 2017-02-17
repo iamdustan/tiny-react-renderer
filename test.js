@@ -2,7 +2,13 @@
 
 const assert = require('assert');
 const React = require('react');
-const TinyRenderer = require('./');
+const args = process.argv.slice(2);
+
+const TEST_FILE = args[0] === '-f' || args[0] === '--fiber'
+  ? 'fiber'
+  : 'stack';
+
+const TinyRenderer = require('./src/' + TEST_FILE);
 const render = TinyRenderer.render;
 const toJSON = (props) => {
   if (props.children) {
