@@ -1,10 +1,10 @@
 {
-  "name": "tiny-react-renderer-stack",
+  "name": "tiny-react-renderer-fiber",
   "private": true,
-  "description": "A tiny React stack renderer to demonstrate how to write a renderer.",
+  "description": "A tiny React fiber renderer to demonstrate how to write a renderer.",
   "main": "./index.js",
   "scripts": {
-    "test": "pushd ../../; node ./test --fiber"
+    "test": "pushd ../../; npm run test-fiber"
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,11 @@
   "homepage": "https://github.com/iamdustan/tiny-render-renderer",
   "dependencies": {
     "fbjs": "^0.8.4",
-    "react": "15.3.x"
+    "react": "16.0.0-alpha.3",
+    "react-dom": "16.0.0-alpha.3",
+    "react-fiber-types": "file:../fiber-types"
   },
   "devDependencies": {}
 }
+
 

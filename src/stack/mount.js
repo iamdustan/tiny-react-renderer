@@ -170,7 +170,10 @@ const render = (
       }
     });
     ReactUpdates.ReactReconcileTransaction.release(transaction);
+
   });
+
+  return component.getPublicInstance();
 };
 
 // Congratulations! You’ve done it! You have a React renderer! Though so far

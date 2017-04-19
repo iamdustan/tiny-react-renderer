@@ -1,5 +1,7 @@
 'use strict';
 
+require('babel-register')({});
+
 const assert = require('assert');
 const React = require('react');
 const args = process.argv.slice(2);
@@ -8,19 +10,25 @@ const TEST_FILE = args[0] === '-f' || args[0] === '--fiber'
   ? 'fiber'
   : 'stack';
 
+console.log('Running %s tests', TEST_FILE);
 const TinyRenderer = require('./src/' + TEST_FILE);
 const render = TinyRenderer.render;
 const toJSON = (props) => {
   if (props.children) {
-    let children;
+    let childRoutes;
     if (Array.isArray(props.children)) {
-      children = props.children.map(_ => ({}));
+      childRoutes = props.children.map(child => (
+        typeof child.props.toJSON === 'function'
+        ? child.props.toJSON(child.props)
+        : toJSON(child.props)
+      ));
     } else {
-      children = {};
+      childRoutes = {};
     }
-    return {children};
+    return {path: props.path, childRoutes};
   }
-  return {};
+
+  return {path: props.path};
 };
 
 // mock stateless components
@@ -30,73 +38,82 @@ const Page2 = () => React.createElement('div');
 
 // helper for <Route path={path} component={component}>{children}</Route>
 const Route = (path, component, children) =>
-  React.createElement('route', {path: path, component: component, key: path}, children);
+  React.createElement('Route', {path: path, component: component, key: path}, children);
 
 const Rte = (path, component, children) =>
-  React.createElement('route', {path: path, component: component, key: path, toJSON: toJSON}, children);
+  React.createElement('Route', {path: path, component: component, key: path, toJSON: toJSON}, children);
 
 const ok = [];
 const fail = [];
 const skipped = [];
+const colors = {
+  green: '\x1b[32m',
+  red: '\x1b[31m',
+  reset: '\x1b[37m',
+};
+
 const it = (desc, fn) => {
   try {
     fn.call(null);
+    console.log('%s✓ %s%s', colors.green, colors.reset, desc);
     ok.push({desc});
   } catch (err) {
     fail.push({desc, err});
+    console.log('%s𝘅 %s%s',colors.red, colors.reset,  desc);
+    console.error('%s. Expected\n  %j\n to equal\n  %j\n', err.name, err.actual, err.expected)
   }
 };
 
 it.skip = (desc, fn) => skipped.push({desc});
 
 it('should render with the default toJSON behavior', () => {
-  render(
+  const element = render(
     Route('/', Base, [
       Route('/page/1', Page1),
       Route('/page/2', Page2)
-    ]),
-    (element) => {
-      assert.deepEqual(
-        element,
+    ])
+  );
+
+  assert.deepEqual(
+    element,
+    {
+      path: '/',
+      component: Base,
+      children: [
         {
-          path: '/',
-          component: Base,
-          children: [
-            {
-              path: '/page/1',
-              component: Page1
-            },
-            {
-              path: '/page/2',
-              component: Page2
-            }
-          ]
+          path: '/page/1',
+          component: Page1
+        },
+        {
+          path: '/page/2',
+          component: Page2
         }
-      );
+      ]
     }
   );
 });
 
 it('should render with a custom toJSON method', () => {
-  render(
+  const element = render(
     Rte('/', Base, [
-      Rte('/page/1', Page1),
+      Rte('/page/1', Page1, [Rte('lol')]),
       Rte('/page/2', Page2)
-    ]),
-    (element) => {
-      assert.deepEqual(
-        element,
-        {children: [{}, {}]}
-      );
+    ])
+  );
+
+  assert.deepEqual(
+    element,
+    {
+      path: '/',
+      childRoutes: [
+        {path: '/page/1', childRoutes: [{path: 'lol'}]},
+        {path: '/page/2'}
+      ]
     }
   );
 });
 
 if (fail.length > 0) {
-  fail.map(f => {
-    console.log(f.desc);
-    console.error('%s. Expected\n  %j\n to equal\n  %j\n', f.err.name, f.err.actual, f.err.expected)
-  });
   console.log('%s tests passed', ok.length);
   if (skipped.length) console.log('%s tests skipped', skipped.length);
   console.log('%s tests failed', fail.length);
@@ -106,3 +123,4 @@ if (fail.length > 0) {
   if (skipped.length) console.log('%s tests skipped', skipped.length);
 }
 
+console.log('');

@@ -1,30 +1,18 @@
 # Tiny React Renderer
 
-> Note that this is currently targeting the **React 16.0.0-alpha.2** release.
+> Note that this is currently targeting the **React 16.0.0-alpha.3** release.
 
 Creating a fiber-based React renderer is quite direct, though there are a few
 awkward pieces around tooling that will be smoothed over in time.
 
-Many languages have this concept of a `main`—the entry point to your
-application. If you look at any React application code you’ve written you’ll see
-that you “start” your app with a call like the following:
-
-```jsx
-// web
-ReactDOM.render(React.createElement(MyApp), document.getElementById('app'));
-
-// native
-AppRegistry.registerComponent('MyApp', () => MyApp);
-```
-
-This is where your application enters into the React domain and comes alive. Your
-root React element is instantiated and attached to the host environment.
+This guide can be read by jumping straight into the code to see the minimal work
+to implement a renderer, or you can read the [./HowDoesFiberWork.md](./HowDoesFiberWork.md)
+document for additional information on *how* Fiber works.
 
 With Fiber, all renderers begin (and maybe even end) in the React{Host}Fiber.js
 file.
 
-With that let’s get started. Our tour continues in
-[./ReactTinyFiber.js](./ReactxTinyFiber.js)!
+With that let’s get started in [./ReactTinyFiber.js](./ReactTinyFiber.js)!
 
 ## Work in Progress
 
