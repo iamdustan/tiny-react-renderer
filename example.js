@@ -1,4 +1,3 @@
-
 const React = require('react');
 const {
   Router,
@@ -10,14 +9,15 @@ const {
 
 console.log(
   ReactDOM.render(
-  renderToJSON(
-    <Route path="/" component={App}>
-      <Route path="about" component={About}/>
-      <Route path="users" component={Users}>
-        <Route path="/user/:userId" component={User}/>
+    renderToJSON(
+      <Route path="/" component={App}>
+        <Route path="about" component={About} />
+        <Route path="users" component={Users}>
+          <Route path="/user/:userId" component={User} />
+        </Route>
+        <Route path="*" component={NoMatch} />
       </Route>
-      <Route path="*" component={NoMatch}/>
-    </Route>
+    )
   )
 );
 
@@ -29,5 +29,3 @@ console.log(
  *   ...
  * }
  */
-
-
