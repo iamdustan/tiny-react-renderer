@@ -40,7 +40,7 @@ import type {
  */
 const ReactFiberReconciler : (
   hostConfig: HostConfig<*, *, *, *, *, *, *, *>
-) => Reconciler<*, *, *> = require('react-dom/lib/ReactFiberReconciler');
+) => Reconciler<*, *, *> = require('react-reconciler');
 
 const LOG_STEPS = false;
 const log = (a, b, c) => {
